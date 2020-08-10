@@ -28,6 +28,14 @@
       border: 1px solid currentColor;
       border-radius: 50%;
       margin-right: 19px;
+      transition: $base-transition;
+      &:hover {
+        border-color: $main-brand-color;
+        .socials__icon {
+          fill: $main-brand-color;
+          opacity: 1;
+        }
+      }
     }
     .socials__link {
       display: block;
