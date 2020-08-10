@@ -1,0 +1,27 @@
+section.about
+    .container
+        .about__wrap
+            .about__user
+                .user
+                    .user__avatar
+                        .user__photo
+                            +image('content/user.jpg')
+                    -
+                        var userinfo = [
+                            ['Проживаю:', "Новосибирск"],
+                            ['Возраст:', "27 лет"],
+                            ['Родился:', "1 января 1991"],
+                        ];
+                    table.user__about
+                        each item in userinfo
+                            tr
+                                td #{item[0]}
+                                td #{item[1]}
+            .about__content
+                .about__main-text
+                    .about__desc Привет, меня зовут
+                    .about__title Владимир Астаханов
+                    .about__info
+                        p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                blockquote.about__quote
+                    | Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

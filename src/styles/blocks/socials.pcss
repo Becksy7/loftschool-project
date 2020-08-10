@@ -1,5 +1,26 @@
 .socials {
   display: flex;
+  &__item {
+    margin-right: 36px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    &:hover {
+      .socials__icon {
+        fill: $main-brand-color;
+        opacity: 1;
+      }
+    }
+  }
+  &__icon {
+    width: 26px;
+    height: 26px;
+    fill: $text-color;
+    transition: $base-transition;
+    opacity: 0.3;
+  }
   &--round-borders {
     .socials__item {
       width: 50px;
@@ -24,17 +45,4 @@
       transform: translate(-50%, -50%);
     }
   }
-}
-
-.socials__item {
-  margin-right: 40px;
-  &:last-child {
-    margin-right: 0px;
-  }
-}
-
-.socials__icon {
-  width: 25px;
-  height: 25px;
-  fill: $text-color;
 }
