@@ -2,29 +2,27 @@ section.works
     .container
         .section-title Мои работы
         .works__content
-            .works-slider
-                .works-slider__pics(data-slide="1")
-                    .works-slider__pics-content
-                        +image('content/slider-1.jpg', 'works-slider__fullpic')
-                        .works-slider__buttons
-                            a(href="#").works-slider__btn.works-slider__btn_next
-                            a(href="#").works-slider__btn.works-slider__btn_prev
-                        ul.works-slider__thumbs
-                            - for (var i = 3; i > 0; i--)
-                            li.works-slider__thumb-item(class=`${i === 1 ? 'active' : ''}`)
-                                a(href="").works-slider__thumb-link
-                                    +image(`content/slider-${i}.jpg`, 'works-slider__thumb')
-                .works-slider__data
-                    ul.works-slider__tags
+            .works-preview
+                .works-preview__pictures
+                    +image('content/slider-1.jpg', 'works-preview__img')
+                    .works-preview__thumbs
+                        ul.thumbs
+                            - for (var i = 1; i < 4; i++)
+                                li.thumbs__item(class=`${i === 1 ? 'active' : ''}`)
+                                    a(href="").thumbs__link
+                                        +image(`content/slider-${i}.jpg`, 'thumbs__img')
+                    .works-preview__buttons
+                        .square-btns
+                            button(type="button").square-btns__item.square-btns__item--next
+                            button(type="button").square-btns__item.square-btns__item--prev
+                .works-preview__info
+                    ul.tags
                         - var tags = ['HTML', 'CSS', 'JavaScript'];
-                        each item in tags
-                            li.works-slider__tag-item
-                                .tag #{item}
-                    .works-slider__title Сайт школы образования
-                    .works-slider__desc
+                            each item in tags
+                                li.tags__item
+                                    .tag #{item}
+                    .works-preview__title Сайт школы образования
+                    .works-preview__desc
                         p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                    .works-slider__link
+                    .works-preview__link
                         a(href="").iconed-link Посмотреть сайт
-
-
-

@@ -1,0 +1,17 @@
+.thumbs {
+  display: flex;
+  justify-content: flex-end;
+  &__item {
+    height: 96px;
+    width: 18%;
+    &.active,
+    &:hover {
+      outline: 3px solid #f29400;
+      z-index: 1;
+    }
+  }
+  &__link {
+    display: block;
+    transition: $base-transition;
+  }
+}
