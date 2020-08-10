@@ -1,22 +1,23 @@
 .square-btns {
   width: 53px;
-  height: 96px;
+  height: 104px;
+  background: #333C49;
   &__item {
     width: 100%;
     height: 50%;
-    background: #2d3c4e;
+    background: #333C49;
     display: block;
     position: relative;
     &:before {
       content: "";
       background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
       display: block;
-      width: 8px;
-      height: 10px;
+      width: 11px;
+      height: 19px;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) rotate(-90deg);
+      transform: translate(-50%, -50%);
       transition: opacity .3s, margin-top .3s;
       opacity: .3;
     }
@@ -26,20 +27,14 @@
       }
     }
     &--next {
-      &:active {
-        &:before {
-          margin-top: -3px;
-        }
-      }
+
     }
     &--prev {
       &:before {
-        transform: translate(-50%, -50%) rotate(-270deg);
+        transform: translate(-50%, -50%) rotate(-180deg);
       }
       &:active {
-        &:before {
-          margin-top: 3px;
-        }
+
       }
     }
   }
