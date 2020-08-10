@@ -1,0 +1,34 @@
+.round-btn {
+  width: 53px;
+  height: 53px;
+  border: 2px solid $text-color;
+  position: relative;
+  border-radius: 50%;
+  transition: $base-transition;
+  &--pointer-right,
+  &--pointer-left {
+    &:before {
+      content: "";
+      width: 11px;
+      height: 19px;
+      display: block;
+      background: svg-load('arrow-down.svg', fill=$text-color) center center / contain no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: $base-transition;
+    }
+    &:hover {
+      border-color: $main-brand-color;
+      &:before {
+        background: svg-load('arrow-down.svg', fill=$main-brand-color) center center / contain no-repeat;
+      }
+    }
+  }
+  &--pointer-left {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-180deg);
+    }
+  }
+}

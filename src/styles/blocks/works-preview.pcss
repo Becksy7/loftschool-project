@@ -26,8 +26,9 @@
       left: 100%;
       font-size: 400px;
       font-weight: 800;
-      margin-left: -8%;
-      color: rgba($text-color, .05);
+      margin-left: -9%;
+      color: #E6E6E6;
+      z-index: -1;
       @include desktop {
         top: 0;
         transform: translateY(-15%);
@@ -44,6 +45,7 @@
   }
   &__info {
     width: 24%;
+    z-index: 10;
     @include tablets {
       width: 100%;
       display: flex;
@@ -83,8 +85,8 @@
 
   &__desc {
     font-weight: 600;
-    color: rgba($dark-text-color, .7);
-    line-height: 1.8;
+    line-height: 30px;
+    color: rgba($dark-text-color, .8);
     margin-bottom: 50px;
   }
 
