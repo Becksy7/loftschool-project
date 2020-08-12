@@ -5,6 +5,7 @@
   color: $links-color;
   font-size: 18px;
   font-weight: bold;
+  transition: $base-transition;
 
   &:before {
     content: "";
@@ -13,5 +14,8 @@
     height: 15px;
     background: svg-load('link.svg', fill=$links-color) center center no-repeat;
     margin-right: 20px;
+  }
+  &:hover {
+    text-decoration-line: underline;
   }
 }

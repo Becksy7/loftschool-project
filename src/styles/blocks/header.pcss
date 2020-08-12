@@ -2,18 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header__menu {
-  width: 55%;
-
-  @include tablets {
-    display: none;
+  &__menu {
+    @include tablets {
+      display: none;
+    }
   }
-}
-
-.header__buttons {
-  @include phones {
-    display: none;
+  &__buttons {
+    padding-top: 16px;
+    @include phones {
+      display: none;
+    }
   }
 }
