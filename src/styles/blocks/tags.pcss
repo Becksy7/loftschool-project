@@ -2,11 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  @include tablets {
+    margin-bottom: 5px;
+  }
   &__item {
     margin-right: 15px;
     margin-bottom: 15px;
     @include desktop {
       margin-right: 1vw;
+    }
+    @include tablets {
+      margin-right: 1.5vw;
     }
   }
 }

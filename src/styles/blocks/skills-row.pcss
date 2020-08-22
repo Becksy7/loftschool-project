@@ -2,13 +2,19 @@
   margin-bottom: 26px;
   font-size: 24px;
   font-weight: 700;
+  @include tablets {
+    text-align: center;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 15px;
+  }
 }
 
 .skills-row__list {
   display: flex;
   flex-wrap: wrap;
 
-  @include phones {
+  @include tablets {
     justify-content: center;
   }
 }

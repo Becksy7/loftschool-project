@@ -19,8 +19,9 @@
     }
 
     @include tablets {
-      margin-bottom: 105px;
-      width: 86%;
+      margin-bottom: 55px;
+      width: 93%;
+      height: 47vw;
     }
     &:before {
       content: attr(data-slide);
@@ -38,6 +39,14 @@
         font-size: 26vw;
         margin-left: -8%;
         transform: translateY(-45%);
+      }
+      @include tablets {
+        transform: none;
+        top: auto;
+        bottom: 0;
+        font-size: 38vw;
+        margin-left: -9%;
+        margin-bottom: -4.2vw;
       }
     }
     @include phones {
@@ -96,6 +105,10 @@
       font-size: 2.4vw;
       margin-bottom: 3vw;
     }
+    @include tablets {
+      font-size: 3.9vw;
+      margin-bottom: 10px;
+    }
   }
 
   &__desc {
@@ -107,6 +120,11 @@
       font-size: 1.4vw;
       line-height: 2.4vw;
       margin-bottom: 3vw;
+    }
+    @include tablets {
+      font-size: 1.8vw;
+      line-height: 3vw;
+      margin-bottom: 30px;
     }
   }
 
@@ -120,6 +138,9 @@
     @include desktop {
       right: -3.5vw;
       bottom: 10%;
+    }
+    @include tablets {
+      right: -4.5vw;
     }
     @include phones {
 

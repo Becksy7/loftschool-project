@@ -9,8 +9,10 @@
   }
 
   @include tablets {
-    width: 135px;
-    height: 135px;
+    width: 21vw;
+    height: 21vw;
+    //width: 135px;
+    //height: 135px;
   }
 }
 
@@ -36,7 +38,9 @@
   font-size: 18px;
   color: rgba($text-color, .5);
   padding: 14px;
-
+  @include tablets {
+    font-size: 2.3vw;
+  }
   @include phones {
     font-size: 16px;
   }

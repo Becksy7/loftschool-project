@@ -5,7 +5,7 @@
 
   }
   @include tablets {
-
+    flex-direction: column;
   }
   &__title {
     font-weight: 600;
@@ -20,6 +20,11 @@
       margin-left: 0;
       padding-right: 30px;
     }
+    @include tablets {
+      padding: 0;
+      margin-bottom: 25px;
+      text-align: center;
+    }
   }
   &__occ {
     display: block;
@@ -29,6 +34,11 @@
     font-weight: 800;
     font-size: 72px;
     line-height: 1;
+    @include tablets {
+      text-align: center;
+      font-size: 48px;
+      padding: 0;
+    }
 
     @include phones {
       font-size: 36px;

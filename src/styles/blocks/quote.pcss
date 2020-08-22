@@ -3,7 +3,7 @@
   position: relative;
 
   @include tablets {
-    padding-left: 0;
+    padding-left: 5.8vw;
   }
 
   &:before {
@@ -18,7 +18,11 @@
     left: 0;
 
     @include tablets {
-      background: none;
+      //background: none;
+      background: svg-load('quote.svg', fill='#303133') center center / cover no-repeat;
+      opacity: 1;
+      width: 5vw;
+      height: 5vw;
     }
   }
 }
@@ -28,4 +32,8 @@
   color: rgba($text-color, .5);
   font-weight: 600;
   line-height: 1.8;
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+  }
 }

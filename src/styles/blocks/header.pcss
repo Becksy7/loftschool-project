@@ -9,8 +9,17 @@
   }
   &__buttons {
     padding-top: 16px;
+    display: flex;
+    align-items: center;
     @include phones {
       display: none;
+    }
+  }
+  &__hamburger {
+    display: none;
+    @include tablets {
+      display: block;
+      margin-left: 80px;
     }
   }
 }

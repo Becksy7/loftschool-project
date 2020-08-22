@@ -16,9 +16,17 @@
     @include desktop {
       padding-top: 40px;
     }
+    @include tablets {
+      flex-grow: 1;
+      align-items: flex-start;
+      padding-top: 13.5vh;
+    }
   }
   &__downbutton {
     display: flex;
     justify-content: center;
+    @include tablets {
+      display: none;
+    }
   }
 }

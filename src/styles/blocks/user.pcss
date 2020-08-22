@@ -3,6 +3,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 65px;
+    @include tablets {
+      margin-bottom: 20px;
+    }
   }
   &__photo {
     width: 200px;
@@ -10,6 +13,10 @@
     overflow: hidden;
     border-radius: 50%;
     position: relative;
+    @include tablets {
+      width: 26vw;
+      height: 26vw;
+    }
     img {
       display: block;
       width: 100%;
@@ -24,10 +31,16 @@
   &__about {
     font-weight: 600;
     width: 100%;
-
+    @include tablets {
+      font-size: 14px;
+      line-height: 19px;
+    }
     td {
       width: 50%;
       padding-bottom: 15px;
+      @include tablets {
+        padding-bottom: 10px;
+      }
       &:first-of-type {
         color: rgba($text-color, .3);
       }
