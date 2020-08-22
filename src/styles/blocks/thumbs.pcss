@@ -4,6 +4,9 @@
   &__item {
     height: 104px;
     width: 18%;
+    @include desktop {
+      height: 6vw;
+    }
     &.active,
     &:hover {
       outline: 3px solid #f29400;

@@ -13,6 +13,11 @@
     z-index: 10;
     height: 549px;
 
+    @include desktop {
+      width: 59%;
+      height: 30vw;
+    }
+
     @include tablets {
       margin-bottom: 105px;
       width: 86%;
@@ -30,9 +35,9 @@
       color: #E6E6E6;
       z-index: -1;
       @include desktop {
-        top: 0;
-        transform: translateY(-15%);
-        margin-left: -11%;
+        font-size: 26vw;
+        margin-left: -8%;
+        transform: translateY(-45%);
       }
     }
     @include phones {
@@ -46,6 +51,9 @@
   &__info {
     width: 24%;
     z-index: 10;
+    @include desktop {
+      width: 29%;
+    }
     @include tablets {
       width: 100%;
       display: flex;
@@ -72,6 +80,9 @@
     bottom: 58px;
     width: 100%;
 
+    @include desktop {
+      bottom: 10%;
+    }
 
     @include phones {
       display: none;
@@ -81,6 +92,10 @@
     font-size: 30px;
     margin-bottom: 36px;
     font-weight: bold;
+    @include desktop {
+      font-size: 2.4vw;
+      margin-bottom: 3vw;
+    }
   }
 
   &__desc {
@@ -88,6 +103,11 @@
     line-height: 30px;
     color: rgba($dark-text-color, .8);
     margin-bottom: 50px;
+    @include desktop {
+      font-size: 1.4vw;
+      line-height: 2.4vw;
+      margin-bottom: 3vw;
+    }
   }
 
   &__link {
@@ -97,7 +117,10 @@
     position: absolute;
     bottom: 58px;
     right: -53px;
-
+    @include desktop {
+      right: -3.5vw;
+      bottom: 10%;
+    }
     @include phones {
 
     }

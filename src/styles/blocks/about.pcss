@@ -6,7 +6,8 @@
     max-width: 990px;
     margin: 0 auto;
     @include desktop {
-
+      max-width: 100%;
+      padding-bottom: 200px;
     }
     @include phones {
       flex-direction: column;
@@ -17,6 +18,9 @@
   &__user {
     width: 36%;
     flex-shrink: 0;
+    @include desktop {
+      width: 32%;
+    }
     @include phones {
       width: 100%;
       margin-bottom: 50px;
@@ -25,6 +29,9 @@
   &__content {
     flex: 1;
     padding-left: 80px;
+    @include desktop {
+      padding-left: 10%;
+    }
   }
   &__desc {
     font-weight: 600;
@@ -36,6 +43,9 @@
     font-size: 36px;
     margin-bottom: 35px;
     color: $text-color;
+    @include desktop {
+      margin-bottom: 15px;
+    }
   }
   &__info {
     font-weight: 600;

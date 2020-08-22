@@ -2,12 +2,16 @@
   background: url('~images/bg/values.jpg') center top / cover no-repeat;
   padding: 145px 0 100px;
   margin-bottom: 200px;
+  @include desktop {
+    margin-bottom: 145px;
+  }
   @include phones {
 
   }
 
   &__container {
     position: relative;
+    max-width: none;
     @include tablets {
       padding-bottom: 350px;
     }
@@ -17,9 +21,15 @@
       background: url('~images/decor/hands.png') left bottom / contain no-repeat;
       display: block;
       bottom: -25%;
-      height: 128%;
-      width: 69%;
-      left: -11%;
+      max-height: 1000px;
+      height: 53vw;
+      width: 37vw;
+      left: -3vw;
+      @include desktop {
+        left: -12vw;
+        height: 60vw;
+        width: 40vw;
+      }
       @include tablets {
 
       }
@@ -41,11 +51,12 @@
   }
 
   &__title-container {
-    width: 38%;
+    width: 55%;
     margin-left: 6%;
+    max-width: 635px;
     @include desktop {
-      width: 42%;
-      margin-left: 0;
+      width: 100%;
+      margin-left: 9%;
     }
     @include tablets {
       width: 68%;
@@ -62,12 +73,16 @@
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 55px;
+    @include desktop {
+      margin-bottom: 45px;
+    }
   }
 
   &__content {
     color: rgba($text-color, 0.8);
     font-weight: 600;
     line-height: 1.8;
+    max-width: 610px;
   }
 
   &__widget {
@@ -79,7 +94,14 @@
   }
 
   &__widget-container {
-    width: 58%;
+    width: 60%;
+    @include desktopHd {
+      width: 68%;
+      max-width: 1015px;
+    }
+    @include desktop {
+      width: 66.5%;
+    }
     @include tablets {
 
     }
