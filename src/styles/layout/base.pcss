@@ -33,13 +33,16 @@ body {
   }
 
   @include phones {
-
+    width: 82%;
   }
 }
 
 .fullscreen-section {
   height: 100vh;
   min-height: 650px;
+  @include phones {
+    min-height: auto;
+  }
 }
 
 button {

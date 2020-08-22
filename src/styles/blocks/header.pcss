@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     @include phones {
-      display: none;
+      padding-top: 0;
     }
   }
   &__hamburger {
@@ -20,6 +20,11 @@
     @include tablets {
       display: block;
       margin-left: 80px;
+    }
+  }
+  &__socials {
+    @include phones {
+      display: none;
     }
   }
 }

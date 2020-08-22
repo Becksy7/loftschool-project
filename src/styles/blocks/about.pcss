@@ -11,7 +11,7 @@
     }
     @include phones {
       flex-direction: column;
-      padding-top: 114px;
+      padding-top: 55px;
       padding-bottom: 114px;
     }
   }
@@ -27,7 +27,7 @@
     }
     @include phones {
       width: 100%;
-      margin-bottom: 50px;
+      margin-bottom: 35px;
     }
   }
   &__content {
@@ -39,12 +39,19 @@
     @include tablets {
       padding-left: 16%;
     }
+    @include phones {
+      padding-left: 0;
+    }
   }
   &__desc {
     font-weight: 600;
     margin-bottom: 20px;
     @include tablets {
       margin-bottom: 10px;
+    }
+    @include phones {
+      font-size: 14px;
+      line-height: 19px;
     }
   }
   &__title {
@@ -60,6 +67,10 @@
       line-height: 1.5;
       margin-bottom: 25px;
     }
+    @include phones {
+      line-height: 1.2;
+      margin-bottom: 38px;
+    }
   }
   &__info {
     font-weight: 600;
@@ -68,12 +79,19 @@
     @include tablets {
       line-height: 24px;
     }
+    @include phones {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
   &__main-text {
     color: rgba($text-color, 0.8);
     margin-bottom: 69px;
     @include tablets {
       margin-bottom: 32px;
+    }
+    @include phones {
+      margin-bottom: 60px;
     }
   }
   &__quote {
@@ -97,6 +115,11 @@
       position: absolute;
       left: -55px;
       top: -5px;
+      @include phones {
+        font-size: 38px;
+        top: -11px;
+        left: -9.5vw;
+      }
     }
   }
 }

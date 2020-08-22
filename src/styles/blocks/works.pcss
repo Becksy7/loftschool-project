@@ -7,6 +7,9 @@
   @include tablets {
 
   }
+  @include phones {
+    margin-bottom: 98px;
+  }
   &__content {
     padding-bottom: 60px;
     @include phones {
@@ -19,7 +22,7 @@
 
   &__container {
     @include phones {
-
+      width: 100%;
     }
   }
 
@@ -29,6 +32,11 @@
     }
     @include phones {
 
+    }
+  }
+  &__container {
+    @include phones {
+      width: 100%;
     }
   }
 }

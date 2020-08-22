@@ -9,12 +9,13 @@ header.header
                     li.menu__item
                         a(href="#").menu__link #{item}
     .header__buttons
-        ul.socials
-            - var socials = ['insta', 'github', 'vk', 'envelope'];
-            each item in socials
-                li.socials__item
-                    a(href=`${item === 'envelope' ? 'mailto:sabantsev@yandex.ru' : '#'}`).socials__link
-                        +icon(item, 'socials__icon')
+        .header__socials
+            ul.socials
+                - var socials = ['insta', 'github', 'vk', 'envelope'];
+                each item in socials
+                    li.socials__item
+                        a(href=`${item === 'envelope' ? 'mailto:sabantsev@yandex.ru' : '#'}`).socials__link
+                            +icon(item, 'socials__icon')
         .header__hamburger
             button.hamburger
                 span.hamburger__line

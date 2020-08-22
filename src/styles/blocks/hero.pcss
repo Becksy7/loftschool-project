@@ -1,6 +1,9 @@
 .hero {
   padding: 56px 0;
   position: relative;
+  @include phones {
+    padding: 48px 0;
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -20,6 +23,9 @@
       flex-grow: 1;
       align-items: flex-start;
       padding-top: 13.5vh;
+    }
+    @include phones {
+      padding-top: 20.5vh;
     }
   }
   &__downbutton {

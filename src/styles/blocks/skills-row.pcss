@@ -8,6 +8,9 @@
     line-height: 25px;
     margin-bottom: 15px;
   }
+  @include phones {
+    margin-bottom: 30px;
+  }
 }
 
 .skills-row__list {
@@ -17,12 +20,18 @@
   @include tablets {
     justify-content: center;
   }
+  @include phones {
+    margin-left: -2%;
+  }
 }
 
 .skills-row__item {
   margin-left: 4%;
   &:first-of-type {
     margin-left: 0;
+    @include phones {
+      margin-left: 2%;
+    }
   }
   @include desktop {
     margin-left: 2%;

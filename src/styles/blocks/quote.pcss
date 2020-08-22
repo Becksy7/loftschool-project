@@ -5,6 +5,9 @@
   @include tablets {
     padding-left: 5.8vw;
   }
+  @include phones {
+    padding-left: 0;
+  }
 
   &:before {
     content: "";
@@ -24,6 +27,9 @@
       width: 5vw;
       height: 5vw;
     }
+    @include phones {
+      display: none;
+    }
   }
 }
 
@@ -35,5 +41,8 @@
   @include tablets {
     font-size: 14px;
     line-height: 24px;
+  }
+  @include phones {
+    margin-bottom: 20px;
   }
 }
