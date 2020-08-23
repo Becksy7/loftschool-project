@@ -114,6 +114,20 @@ new Vue({
           }
           break;
       }
+    },
+    gotoSlide(slideId) {
+      const curIndex = this.works.findIndex(el => el.id === this.currentWork.id);
+      const index = this.works.findIndex(el => el.id === slideId);
+      if (index > curIndex) {
+        for (let i = curIndex; i < index; i++ ) {
+          this.slide('next');
+        }
+      }
+      if (index < curIndex) {
+        for (let i = index; i < curIndex; i++ ) {
+          this.slide('prev');
+        }
+      }
     }
   },
   created() {
