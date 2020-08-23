@@ -33,7 +33,7 @@
       transition: opacity .3s, margin-top .3s;
       opacity: .3;
     }
-    &:hover {
+    &:hover:not([disabled]) {
       &:before {
         opacity: 1;
       }
@@ -48,6 +48,11 @@
       &:active {
 
       }
+    }
+    &[disabled] {
+      opacity: 0.2;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }

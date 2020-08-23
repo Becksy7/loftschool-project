@@ -1,121 +1,123 @@
 import Vue from "vue";
-import axios from "axios";
-
-const baseUrl = process.env.BASE_URL;
-
-axios.defaults.baseURL = baseUrl;
-
-const btns = {
-  template: "#slider-btns",
-  methods: {
-    slide(direction) {
-      switch (direction) {
-        case "next":
-          break;
-        case "prev":
-          break;
-      }
-    }
-  }
-};
 
 const thumbs = {
-  template: "#slider-thumbs",
-  props: {
-    works: Array,
-    currentWork: Object
+  props: ["currentWork", "works"],
+  template: "#preview-thumbs",
+}
+
+const btns = {
+  props: ["currentWork", "works", "isLastSlide", "isFirstSlide"],
+  template: "#preview-btns",
+}
+
+const display = {
+  props: ["currentWork", "works", "currentIndex", "isLastSlide", "isFirstSlide"],
+  template: "#preview-display",
+  components: {
+    thumbs, btns
+  },
+  computed: {
+    displayedWorks() {
+      const works = [...this.works];
+      return works.slice(0,3);
+    }
   }
-};
+}
 
 const tags = {
-  template: "#slider-tags",
-  props: {
-    tags: Array
-  }
-};
+  props: ["tags"],
+  template: "#preview-tags",
+}
 
 const info = {
-  template: "#slider-info",
-  components: { tags },
-  props: {
-    currentWork: Object
+  props: ["currentWork"],
+  template: "#preview-info",
+  components: {
+    tags
   },
   computed: {
     tagsArray() {
-      return this.currentWork.techs.split(",");
+      return this.currentWork.skills.split(",");
     }
   }
-};
-
-const display = {
-  components: { btns, thumbs },
-  props: {
-    works: Array,
-    currentWork: Object,
-    currentIndex: Number
-  },
-  computed: {
-    reversedWorks() {
-      const works = [...this.works];
-      return works.reverse();
-    }
-  },
-  template: "#slider-display"
-};
+}
 
 new Vue({
-  el: "#works-slider-component",
+  el: "#preview-component",
+  template: "#preview-container",
   data() {
     return {
       works: [],
-      currentIndex: 0
-    };
+      currentIndex: 0,
+      isLastSlide: false,
+      isFirstSlide: true
+    }
   },
   components: {
-    display,
-    info
+    display, info
   },
   computed: {
     currentWork() {
-      return this.works[this.currentIndex];
-    }
-  },
-  methods: {
-    handleSlide(direction) {
-      switch (direction) {
-        case "next":
-          this.currentIndex++;
-          break;
-        case "prev":
-          this.currentIndex--;
-          break;
-      }
-    },
-    slideDirectly(workToShow) {
-      this.works.forEach((item, index) => {
-        if (workToShow.id === item.id) {
-          this.currentIndex = index;
-        }
-      });
-    },
-    makeInfititeLoopForCurIndex(value) {
-      const worksAmount = this.works.length - 1;
-
-      if (value > worksAmount) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = worksAmount;
-    },
-    async fetchWorks() {
-      const { data: works } = await axios.get("/works/1");
-      this.works = works;
+      return this.works[0];
     }
   },
   watch: {
     currentIndex(value) {
-      this.makeInfititeLoopForCurIndex(value);
+      this.disabledIndex(value);
     }
   },
-  async mounted() {
-    await this.fetchWorks();
+  methods: {
+    makeInfiniteLoopForNdx(index) {
+      const worksNumber = this.works.length - 1;
+      if (index < 0) this.currentIndex = worksNumber;
+      if (index > worksNumber) this.currentIndex = 0;
+    },
+    disabledIndex(index) {
+      const worksNumber = this.works.length - 1;
+      if (index > 0) {
+        this.isFirstSlide = false;
+      } else {
+        this.currentIndex = 0;
+        this.isFirstSlide = true;
+      }
+
+      if (index < worksNumber) {
+        this.isLastSlide = false;
+      } else {
+        this.currentIndex = worksNumber;
+        this.isLastSlide = true;
+      }
+
+    },
+    requireImagesToArray(data) {
+      return data.map(item => {
+        const requireImg = require(`../images/content/${item.photo}`).default;
+        item.photo = requireImg;
+        return item;
+      })
+    },
+    slide(direction) {
+      const lastItem = this.works[this.works.length - 1];
+      switch (direction) {
+        case "next":
+          if (this.currentIndex < this.works.length - 1) {
+            this.works.push(this.works[0]);
+            this.works.shift();
+            this.currentIndex ++;
+          }
+          break;
+        case "prev":
+          if (this.currentIndex > 0) {
+            this.works.unshift(lastItem);
+            this.works.pop();
+            this.currentIndex--;
+          }
+          break;
+      }
+    }
   },
-  template: "#slider-container"
+  created() {
+    const data = require("../data/works.json");
+    this.works = this.requireImagesToArray(data);
+  }
 });
