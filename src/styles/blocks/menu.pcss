@@ -9,10 +9,17 @@
       margin-right: 0;
     }
   }
+  @include tablets {
+
+  }
   &__link {
     text-decoration: none;
     white-space: nowrap;
     transition: $base-transition;
+    @include tablets {
+      font-size: 14px;
+      line-height: 19px;
+    }
     &:hover {
       color: $main-brand-color;
       //font-weight: 600;

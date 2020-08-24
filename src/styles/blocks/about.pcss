@@ -6,45 +6,93 @@
     max-width: 990px;
     margin: 0 auto;
     @include desktop {
-
+      max-width: 100%;
+      padding-bottom: 150px;
     }
     @include phones {
       flex-direction: column;
-      padding-top: 114px;
+      padding-top: 55px;
       padding-bottom: 114px;
     }
   }
   &__user {
     width: 36%;
     flex-shrink: 0;
+    @include desktop {
+      width: 32%;
+    }
+    @include tablets {
+      width: 30%;
+      padding-top: 5px;
+    }
     @include phones {
       width: 100%;
-      margin-bottom: 50px;
+      margin-bottom: 35px;
     }
   }
   &__content {
     flex: 1;
     padding-left: 80px;
+    @include desktop {
+      padding-left: 10%;
+    }
+    @include tablets {
+      padding-left: 16%;
+    }
+    @include phones {
+      padding-left: 0;
+    }
   }
   &__desc {
     font-weight: 600;
     margin-bottom: 20px;
+    @include tablets {
+      margin-bottom: 10px;
+    }
+    @include phones {
+      font-size: 14px;
+      line-height: 19px;
+    }
   }
-
   &__title {
     font-weight: 700;
     font-size: 36px;
     margin-bottom: 35px;
     color: $text-color;
+    @include desktop {
+      margin-bottom: 15px;
+    }
+    @include tablets {
+      font-size: 30px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+    @include phones {
+      line-height: 1.2;
+      margin-bottom: 38px;
+    }
   }
   &__info {
     font-weight: 600;
     font-size: 16px;
     line-height: 30px;
+    @include tablets {
+      line-height: 24px;
+    }
+    @include phones {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
   &__main-text {
     color: rgba($text-color, 0.8);
     margin-bottom: 69px;
+    @include tablets {
+      margin-bottom: 32px;
+    }
+    @include phones {
+      margin-bottom: 60px;
+    }
   }
   &__quote {
     margin: 0;
@@ -52,6 +100,10 @@
     font-style: italic;
     font-weight: normal;
     line-height: 30px;
+    @include tablets {
+      font-size: 14px;
+      line-height: 24px;
+    }
     &:before {
       content: "*";
       display: block;
@@ -63,6 +115,11 @@
       position: absolute;
       left: -55px;
       top: -5px;
+      @include phones {
+        font-size: 38px;
+        top: -11px;
+        left: -9.5vw;
+      }
     }
   }
 }

@@ -4,6 +4,12 @@
   &__item {
     height: 104px;
     width: 18%;
+    @include desktop {
+      height: 6vw;
+    }
+    @include tablets {
+      height: 9vw;
+    }
     &.active,
     &:hover {
       outline: 3px solid #f29400;
@@ -14,6 +20,8 @@
     display: block;
     transition: $base-transition;
     height: 100%;
+    padding: 0;
+    background-color: transparent;
   }
   &__img {
     width: 100%;

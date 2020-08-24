@@ -1,9 +1,7 @@
 html {
-  @include desktop {
-    font-size: 16px;
-  }
+  font-size: 14px;
   @include tablets {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 body,
@@ -30,15 +28,21 @@ body {
   margin: 0 auto;
   max-width: 1497px;
   width: 95%;
+  @include desktop {
+    width: 90%;
+  }
 
   @include phones {
-
+    width: 82%;
   }
 }
 
 .fullscreen-section {
   height: 100vh;
   min-height: 650px;
+  @include phones {
+    min-height: auto;
+  }
 }
 
 button {

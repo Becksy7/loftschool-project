@@ -1,8 +1,21 @@
 .text-quote__text {
   margin-bottom: 35px;
+  max-width: 500px;
+  @include desktop {
+    margin-bottom: 3vw;
+  }
+  @include tablets {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
 }
 
 .text-quote__author {
   color: #fff;
   font-style: italic;
+  @include tablets {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }

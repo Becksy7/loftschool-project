@@ -6,6 +6,16 @@
   font-size: 18px;
   font-weight: bold;
   transition: $base-transition;
+  @include desktop {
+    font-size: 1.5vw;
+  }
+  @include tablets {
+    font-size: 1.8vw;
+  }
+  @include phones {
+    font-size: 14px;
+    line-height: 19px;
+  }
 
   &:before {
     content: "";

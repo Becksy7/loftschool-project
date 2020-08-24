@@ -5,6 +5,9 @@
 
 .user-min__avatar {
   margin-right: 30px;
+  @include tablets {
+    margin-right: 2vw;
+  }
 }
 
 .user-min__pic-wrapper {
@@ -12,16 +15,38 @@
   height: 74px;
   border-radius: 50%;
   overflow: hidden;
+  @include tablets {
+    width: 9.5vw;
+    height: 9.5vw;
+  }
+  @include phones {
+    width: 75px;
+    height: 75px;
+  }
 }
 
 .user-min__name {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 16px;
+  @include tablets {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 12px;
+  }
+  @include phones {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 6px;
+  }
 }
 
 .user-min__occ {
   color: rgba($text-color, .3);
   font-weight: 600;
+  @include tablets {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 

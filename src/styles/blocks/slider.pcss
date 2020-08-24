@@ -3,24 +3,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 57.5%;
     margin-bottom: 80px;
+    max-width: 650px;
+    @include tablets {
+      justify-content: flex-start;
+      max-width: 100%;
+      margin-bottom: 50px;
+    }
     @include phones {
       flex-direction: column;
       align-items: center;
-      margin-bottom: 33px;
+      margin-bottom: 55px;
     }
   }
   &__title.section-title {
     margin-bottom: 0;
     @include phones {
-      margin-right: 0%;
-      margin-bottom: 25px;
+      margin-right: 0;
+      margin-bottom: 20px;
     }
   }
   &__buttons {
     display: flex;
     align-items: center;
+    @include tablets {
+      margin-left: 4vw;
+    }
+    @include phones {
+      margin-left: 0;
+    }
   }
   &__btn {
     margin-right: 30px;
@@ -30,13 +41,37 @@
   }
   &__content {
     display: flex;
-    padding-right: 38%;
+    max-width: 1500px;
+    padding-right: 25%;
+    @include desktop {
+      padding-right: 0;
+      max-width: 925px;
+    }
+    @include tablets {
+
+    }
+    @include phones {
+      overflow: hidden;
+    }
   }
   &__item {
     width: 50%;
-    margin-right: 60px;
+    padding-right: 60px;
+    flex-shrink: 0;
     &:last-of-type {
-      margin-right: 0;
+      padding-right: 0;
+    }
+    @include tablets {
+      padding-right: 2vw;
+    }
+    @include phones {
+      width: 100%;
+      flex-shrink: 0;
+      padding-right: 0;
     }
   }
+}
+
+.flickity-viewport {
+  width: 100%;
 }

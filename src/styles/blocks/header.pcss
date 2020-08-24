@@ -9,6 +9,20 @@
   }
   &__buttons {
     padding-top: 16px;
+    display: flex;
+    align-items: center;
+    @include phones {
+      padding-top: 0;
+    }
+  }
+  &__hamburger {
+    display: none;
+    @include tablets {
+      display: block;
+      margin-left: 80px;
+    }
+  }
+  &__socials {
     @include phones {
       display: none;
     }

@@ -1,71 +1,42 @@
 import Vue from "vue";
-import axios from "axios";
 
-const baseUrl = process.env.BASE_URL;
-
-axios.defaults.baseURL = baseUrl;
-
-const skill = {
-  template: "#skill",
-  props: {
-    skillName: String,
-    skillPercents: Number
-  },
+const skillsItem = {
+  props: ["skill"],
+  template: "#skills-item",
   methods: {
-    drawCircle() {
-      const circle = this.$refs["color-circle"];
-      const dashOffset = parseInt(
+    drawPercentageCircle() {
+      const circle = this.$refs["colored-circle"];
+      const dashArray = parseInt(
         getComputedStyle(circle).getPropertyValue("stroke-dasharray")
       );
-      const percent = (dashOffset / 100) * (100 - this.skillPercents);
-
-      circle.style.strokeDashoffset = percent;
+      circle.style.strokeDashoffset = (dashArray / 100) * (100 - this.skill.percent);
     }
   },
   mounted() {
-    this.drawCircle();
+    this.drawPercentageCircle();
   }
-};
+}
 
 const skillsRow = {
+  props: ["category"],
   template: "#skills-row",
   components: {
-    skill
-  },
-  props: {
-    skills: Array,
-    category: Object
-  },
-  computed: {
-    categorySkills() {
-      const matchSkillAndCatId = skill => skill.category === this.category.id;
-      return this.skills.filter(matchSkillAndCatId);
-    }
+    skillsItem
   }
-};
+}
 
 new Vue({
   el: "#skills-component",
+  template: "#skills-list",
   components: {
     skillsRow
   },
-  data: {
-    skills: [],
-    categories: []
-  },
-  methods: {
-    async fetchCategories() {
-      const { data: categories } = await axios.get("/categories/1");
-      this.categories = categories;
-    },
-    async fetchSkills() {
-      const { data: skills } = await axios.get("/skills/1");
-      this.skills = skills;
+  data() {
+    return {
+      skills: []
     }
   },
-  async created() {
-    await this.fetchCategories();
-    await this.fetchSkills();
-  },
-  template: "#skills-list"
+  created() {
+    this.skills = require("../data/skills.json");
+  }
 });
