@@ -1,32 +1,53 @@
-<template lang="pug">
-  .wrapper
-    .page-container
-      header.header
-        .header__container.container
-          .avatar
-            .avatar__logo
-            span.avatar__name Владимир Астаханов
-          .header__title
-            span.header__title-text Панель администрирования
-          .header__logout
-            button.header-button Выйти
-      nav.nav
-        .nav__container.container
-          .nav__list
-            .nav__item.nav__item--active
-              a(href="#").nav__link Обо мне
-            .nav__item
-              a(href="#").nav__link Работы
-            .nav__item
-              a(href="#").nav__link Отзывы
+<template>
+  <div class="wrapper">
+    <div class="page-container">
+      <header-component title="Панель администрирования">
+        <avatar title="wfwegrwgre"/>
+      </header-component>
+      <nav class="nav">
+        <div class="container nav__container">
+          <div class="nav__list">
+            <div class="nav__item nav__item--active">
+              <a class="nav__link" href="#">Обо мне</a>
+            </div>
+            <div class="nav__item">
+              <a class="nav__link" href="#">Работы</a>
+            </div>
+            <div class="nav__item">
+              <a class="nav__link" href="#">Отзывы</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main class="main">
+        <div class="container main__container">
+          <div class="main__caption">
+            <h1 class="main__title">Блок «Обо мне»</h1>
+            <div class="main__caption-btn">
+              <button class="add-button add-button--sm">
+                <span class="add-button__icon">+</span>
+                <span class="add-button__title">Добавить группу</span>
+              </button>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="cards__list">
+              <div class="cards__item">
+                <div class="card">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!--
       main.main
         .main__container.container
-          .main__caption
-            h1.main__title Блок «Обо мне»
-            .main__caption-btn
-              button.add-button.add-button--sm
-                span.add-button__icon +
-                span.add-button__title Добавить группу
+
           .cards
             .cards__list
               .cards__item
@@ -53,11 +74,18 @@
                       .card__btns
                         button.add-button
                           span.add-button__icon +
-
-
-
+-->
 </template>
-
+<script>
+import avatar from "./components/avatar";
+import headerComponent from "./components/header/header";
+export default {
+  components: {
+    avatar,
+    headerComponent
+  }
+}
+</script>
 <style lang="postcss">
   @import "./admin.pcss";
 </style>
