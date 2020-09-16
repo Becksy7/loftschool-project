@@ -1,0 +1,35 @@
+.skill-component {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr repeat(2, 80px);
+  width: 100%;
+  align-items: center;
+  min-height: 35px;
+  grid-column-gap: 10px;
+
+  &__title {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #373E42;
+  }
+  &__percent {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #414C63;
+    text-align: right;
+  }
+  &__btns {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__btn {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}
