@@ -16,6 +16,7 @@
 export default {
   props: {
     title: String,
+    default: "Панель администрирования"
   }
 }
 </script>

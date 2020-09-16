@@ -2,23 +2,9 @@
   <div class="wrapper">
     <div class="page-container">
       <header-component title="Панель администрирования">
-        <avatar title="wfwegrwgre"/>
+       <avatar src="https://picsum.photos/300/300" title="Владимир Астаханов"/>
       </header-component>
-      <nav class="nav">
-        <div class="container nav__container">
-          <div class="nav__list">
-            <div class="nav__item nav__item--active">
-              <a class="nav__link" href="#">Обо мне</a>
-            </div>
-            <div class="nav__item">
-              <a class="nav__link" href="#">Работы</a>
-            </div>
-            <div class="nav__item">
-              <a class="nav__link" href="#">Отзывы</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <navigation/>
       <main class="main">
         <div class="container main__container">
           <div class="main__caption">
@@ -79,13 +65,18 @@
 <script>
 import avatar from "./components/avatar";
 import headerComponent from "./components/header/header";
+import navigation from "./components/navigation/navigation";
 export default {
   components: {
     avatar,
-    headerComponent
+    headerComponent,
+    navigation
   }
 }
 </script>
 <style lang="postcss">
-  @import "./admin.pcss";
+  @import "normalize.css";
+  @import "../styles/mixins.pcss";
+  @import "../styles/layout/base.pcss";
 </style>
+<style lang="postcss" scoped src="./admin.pcss"></style>

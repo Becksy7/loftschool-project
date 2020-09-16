@@ -34,7 +34,7 @@ export default {
         width: `${size}rem`,
         height: `${size}rem`,
       }
-    }
+    },
   }
 }
 </script>

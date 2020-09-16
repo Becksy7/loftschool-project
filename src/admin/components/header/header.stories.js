@@ -1,4 +1,4 @@
-import headline from "./header";
+import headerComponent from "./header";
 import { action } from "@storybook/addon-actions";
 
 const methods = {
@@ -6,16 +6,16 @@ const methods = {
 }
 
 export default {
-  title: "headline",
-  components: {headline}
+  title: "header",
+  components: {headerComponent}
 }
 
 export const defaultView = () => ({
-  components: {headline},
+  components: {headerComponent},
   template: `
-    <headline @action="onChange" title="Панель администрирования">
-      <h3>dfghjkl;</h3>
-    </headline>
+    <header-component @action="onChange" title="Панель администрирования">
+      <h3>Content</h3>
+    </header-component>
   `
 })
 
