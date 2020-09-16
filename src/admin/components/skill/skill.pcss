@@ -1,7 +1,7 @@
 .skill-component {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr repeat(2, 80px);
+  grid-template-columns: 1fr 40px 70px;
   width: 100%;
   align-items: center;
   min-height: 35px;
@@ -18,7 +18,13 @@
     font-size: 16px;
     line-height: 22px;
     color: #414C63;
-    text-align: right;
+    position: relative;
+    &:after {
+      content: '%';
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
   &__btns {
     display: flex;

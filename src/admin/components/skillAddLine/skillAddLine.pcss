@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 50px;
   grid-template-rows: 1fr;
   align-items: center;
+  position: relative;
   &__inputs {
     display: grid;
     grid-template-columns: 1fr 80px;
@@ -12,5 +13,38 @@
   &__btns {
     display: flex;
     justify-content: flex-end;
+  }
+  &__title {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #373E42;
+  }
+  &__percent {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #414C63;
+    position: relative;
+    &:after {
+      content: '%';
+      position: absolute;
+      right: 0;
+      top: 9px;
+    }
+  }
+  &--blocked {
+    filter: grayscale(100%);
+    pointer-events: none;
+    opacity: 0.6;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
   }
 }

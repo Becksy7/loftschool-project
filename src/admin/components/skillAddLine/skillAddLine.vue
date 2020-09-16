@@ -1,8 +1,9 @@
 <template>
-  <div class="add-line-component">
+  <div :class="['add-line-component', {'add-line-component--blocked': blocked}]">
     <div class="add-line-component__inputs">
       <div class="add-line-component__title">
         <app-input
+          placeholder="Новый навык"
           noSidePaddings
         />
       </div>
@@ -16,19 +17,19 @@
       </div>
     </div>
     <div class="add-line-component__btns">
-      <iconed-btn type="iconed" title="" noTitle/>
+      <round-btn type="round"/>
     </div>
   </div>
 </template>
 <script>
   import input from "../input";
-  import iconedBtn from "../button";
+  import roundBtn from "../button";
   export default {
     components: {
-      appInput: input, iconedBtn
+      appInput: input, roundBtn
     },
     props: {
-
+      blocked: Boolean
     },
     data() {
       return {

@@ -16,9 +16,13 @@
           <div class="cards">
             <div class="cards__list">
               <div class="cards__item">
-                <div class="card">
-
-                </div>
+                <category empty/>
+              </div>
+              <div class="cards__item">
+                <category/>
+              </div>
+              <div class="cards__item">
+                <category/>
               </div>
             </div>
           </div>
@@ -63,13 +67,15 @@
 import avatar from "./components/avatar";
 import headerComponent from "./components/header/header";
 import navigation from "./components/navigation/navigation";
-import iconedBtn from "./components/button/button"
+import iconedBtn from "./components/button/button";
+import category from "./components/category";
 export default {
   components: {
     avatar,
     headerComponent,
     navigation,
-    iconedBtn
+    iconedBtn,
+    category
   }
 }
 </script>

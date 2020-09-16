@@ -8,8 +8,11 @@
         <div class="card__text" v-text="title"></div>
         <slot name="title" v-if="!!title === false"></slot>
       </div>
-      <div class="content">
+      <div class="card__content">
         <slot name="content"></slot>
+      </div>
+      <div class="card__footer">
+        <slot name="footer"></slot>
       </div>
     </div>
   </div>

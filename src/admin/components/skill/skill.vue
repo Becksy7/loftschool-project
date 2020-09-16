@@ -1,7 +1,7 @@
 <template>
   <div class="skill-component" v-if="!editMode">
     <div class="skill-component__title">{{skill.title}}</div>
-    <div class="skill-component__percent">{{skill.percent}}%</div>
+    <div class="skill-component__percent">{{skill.percent}}</div>
     <div class="skill-component__btns">
       <icon
         @click="editMode=true"
