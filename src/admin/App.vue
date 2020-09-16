@@ -10,10 +10,7 @@
           <div class="main__caption">
             <h1 class="main__title">Блок «Обо мне»</h1>
             <div class="main__caption-btn">
-              <button class="add-button add-button--sm">
-                <span class="add-button__icon">+</span>
-                <span class="add-button__title">Добавить группу</span>
-              </button>
+              <iconed-btn type="iconed" title="Добавить группу" />
             </div>
           </div>
           <div class="cards">
@@ -66,11 +63,13 @@
 import avatar from "./components/avatar";
 import headerComponent from "./components/header/header";
 import navigation from "./components/navigation/navigation";
+import iconedBtn from "./components/button/button"
 export default {
   components: {
     avatar,
     headerComponent,
-    navigation
+    navigation,
+    iconedBtn
   }
 }
 </script>
