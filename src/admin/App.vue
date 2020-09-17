@@ -1,23 +1,11 @@
 <template>
-  <div class="wrapper">
-    <div class="page-container">
-      <header-component title="Панель администрирования">
-       <avatar src="https://picsum.photos/300/300" title="Владимир Астаханов"/>
-      </header-component>
-      <navigation/>
-      <router-view/>
-    </div>
-  </div>
+  <router-view/>
 </template>
 <script>
-import avatar from "./components/avatar";
-import headerComponent from "./components/header/header";
-import navigation from "./components/navigation/navigation";
+
 export default {
   components: {
-    avatar,
-    headerComponent,
-    navigation,
+
   },
   data() {
     return {

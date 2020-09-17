@@ -1,26 +1,28 @@
 <template>
   <div class="auth">
-    <h2 class="auth__title">Авторизация</h2>
-    <form class="auth__form" action="">
-      <div class="auth__form-group">
-        <app-input
-            icon="user"
-            v-model="user.name"
-            :errorMessage="validation.firstError('user.name')"
-        />
-      </div>
-      <div class="auth__form-group">
-        <app-input
-            icon="key"
-            type="password"
-            v-model="user.password"
-            :errorMessage="validation.firstError('user.password')"
-        />
-      </div>
-      <div class="auth__form-btn">
-        <appButton fullWidth title="Отправить"  @click.prevent="login" />
-      </div>
-    </form>
+    <div class="auth__wrap">
+      <h2 class="auth__title">Авторизация</h2>
+      <form class="auth__form" action="">
+        <div class="auth__form-group">
+          <app-input
+              icon="user"
+              v-model="user.name"
+              :errorMessage="validation.firstError('user.name')"
+          />
+        </div>
+        <div class="auth__form-group">
+          <app-input
+              icon="key"
+              type="password"
+              v-model="user.password"
+              :errorMessage="validation.firstError('user.password')"
+          />
+        </div>
+        <div class="auth__form-btn">
+          <appButton fullWidth title="Отправить"  @click.prevent="login" />
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 <script>

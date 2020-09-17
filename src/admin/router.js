@@ -7,22 +7,22 @@ const routes = [
   {
     path: '/',
     name: 'about',
-    component: () => import('./components/pages/about.vue')
+    component: () => import('./pages/about/about.vue')
   },
   {
     path: '/works',
     name: 'works',
-    component: () => import('./components/pages/works.vue')
+    component: () => import('./pages/works/works.vue')
   },
   {
     path: '/reviews',
     name: 'reviews',
-    component: () => import('./components/pages/reviews.vue')
+    component: () => import('./pages/reviews/reviews.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('./components/pages/login.vue')
+    component: () => import('./pages/login/login.vue')
   }
 ];
 
