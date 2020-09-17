@@ -2,10 +2,11 @@
   <div class="auth">
     <div class="auth__wrap">
       <h2 class="auth__title">Авторизация</h2>
-      <form class="auth__form" action="">
+      <form class="auth__form" @submit.prevent="handleSubmit">
         <div class="auth__form-group">
           <app-input
               icon="user"
+              title="Логин"
               v-model="user.name"
               :errorMessage="validation.firstError('user.name')"
           />
@@ -13,27 +14,27 @@
         <div class="auth__form-group">
           <app-input
               icon="key"
+               title="Пароль"
               type="password"
               v-model="user.password"
               :errorMessage="validation.firstError('user.password')"
           />
         </div>
         <div class="auth__form-btn">
-          <appButton fullWidth title="Отправить"  @click.prevent="login" />
+          <appButton fullWidth :disabled="isSubmitDisabled" title="Отправить" typeAttr="submit" />
         </div>
       </form>
     </div>
   </div>
 </template>
 <script>
-import Vue from "vue";
-import axios from "axios";
+
+import $axios from "../../requests";
 import appInput from "../input";
 import appButton from "../button";
 import SimpleVueValidator from 'simple-vue-validator';
 
 const Validator = SimpleVueValidator.Validator;
-const baseUrl = 'https://webdev-api.loftschool.com/';
 
 export default {
   mixins: [SimpleVueValidator.mixin],
@@ -42,7 +43,7 @@ export default {
       return Validator.value(value).required();
     },
     'user.password': function (value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required().minLength(6);
     }
   },
   components: {
@@ -54,22 +55,26 @@ export default {
       user: {
         name: "",
         password: ""
-      }
+      },
+      isSubmitDisabled: false
     }
   },
   methods: {
-    login () {
-      console.log(this.user);
-      axios.post(baseUrl + 'login', this.user).then(response => {
-        console.log(response.data);
-      }).catch(error => {
+    async handleSubmit() {
+      const $this = this;
+      if (await this.$validate() === false) return;
+      $this.isSubmitDisabled = true;
+      try {
+        const response = await $axios.post('/login', $this.user);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        $this.$router.replace('/');
+      } catch (error) {
         console.log(error.response.data)
-      });
-      this.$validate().then(function (success) {
-        if (success) {
-          console.log(this.user)
-        }
-      })
+      } finally {
+        $this.isSubmitDisabled = false
+      }
     }
   }
 }

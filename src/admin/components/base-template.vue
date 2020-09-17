@@ -17,6 +17,7 @@
 import avatar from "../components/avatar";
 import headerComponent from "../components/header/header";
 import navigation from "../components/navigation/navigation";
+
 export default {
   components: {
     avatar,

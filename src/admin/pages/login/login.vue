@@ -1,15 +1,15 @@
 <template>
   <div class="login-page">
-    <div class="page-container">
-      <auth/>
+    <div class="login-page__wrap">
+      <app-auth/>
     </div>
   </div>
 </template>
 <script>
-import auth from "../../components/auth";
+import appAuth from "../../components/auth";
 export default {
   components: {
-    auth
+    appAuth
   },
   data() {
     return {
@@ -23,4 +23,4 @@ export default {
 @import "../../../styles/mixins.pcss";
 @import "../../../styles/layout/base.pcss";
 </style>
-<style lang="postcss" scoped src="../admin.pcss"></style>
+<style lang="postcss" scoped src="../../admin.pcss"></style>
