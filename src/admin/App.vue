@@ -5,6 +5,7 @@
        <avatar src="https://picsum.photos/300/300" title="Владимир Астаханов"/>
       </header-component>
       <navigation/>
+      <router-view/>
       <main class="main">
         <div class="container main__container">
           <div class="main__caption">

@@ -3,7 +3,7 @@
     <div class="container nav__container">
       <div class="nav__list">
         <div :class="['nav__item', {'nav__item--active': link.active}]" v-for="link in links" :key="link.id">
-          <a class="nav__link" href="`/${link.alias}`">{{link.title}}</a>
+          <router-link class="nav__link" :to="link.alias">{{link.title}}</router-link>
         </div>
       </div>
     </div>

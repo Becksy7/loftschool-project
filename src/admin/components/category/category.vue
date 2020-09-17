@@ -10,7 +10,11 @@
       <div class="skills" v-if="!empty">
         <div class="skills__list">
           <div class="skills__item" v-for="skill in skills" :key="skill.id">
-            <skill :skill="skill"/>
+            <skill
+              :skill="skill"
+              @remove="$emit('remove-skill', $event)"
+              @approve="$emit('edit-skill', $event)"
+            />
           </div>
         </div>
       </div>
