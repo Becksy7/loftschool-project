@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}]"
+    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}, {'btn-full': fullWidth}]"
     v-if="typeAttr === 'button'"
     v-on="$listeners"
     :disabled="disabled"
@@ -23,6 +23,7 @@ export default {
       default: false
     },
     plain: Boolean,
+    fullWidth: Boolean,
     typeAttr: {
       type: String,
       default: "button",
