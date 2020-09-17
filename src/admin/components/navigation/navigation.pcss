@@ -1,3 +1,4 @@
+@import "../../../styles/mixins.pcss";
 .nav {
   background: #ffffff;
   grid-row: 2/3;
@@ -9,6 +10,9 @@
     min-height: 70px;
     display: flex;
     align-items: stretch;
+    @include phones {
+      min-height: 50px;
+    }
   }
   &__item {
     font-weight: 600;
@@ -20,6 +24,10 @@
     border-bottom: 3px solid transparent;
     color: #414C63;
     padding: 0 20px;
+    @include phones {
+      padding: 0 10px;
+    }
+
     &--active {
       color: #383BCF;
       border-bottom: 3px solid #383BCF;

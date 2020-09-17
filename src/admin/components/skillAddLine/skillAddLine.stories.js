@@ -2,8 +2,7 @@ import skillAddLine from "./skillAddLine.vue";
 
 export default {
   title: "skillAddLine",
-  components: { skillAddLine },
-  decorators: [withKnobs]
+  components: { skillAddLine }
 };
 
 export const defaultView = () => ({
