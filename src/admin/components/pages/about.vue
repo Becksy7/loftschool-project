@@ -21,8 +21,8 @@
   </main>
 </template>
 <script>
-  import iconedBtn from "../components/button/button";
-  import category from "../components/category";
+  import iconedBtn from "../button/button";
+  import category from "../category";
   export default {
     components: {
       iconedBtn,
@@ -35,13 +35,13 @@
       }
     },
     created() {
-      this.categories = require("../data/categories.json");
+      this.categories = require("../../data/categories.json");
     }
   }
 </script>
 <style lang="postcss">
   @import "normalize.css";
-  @import "../../styles/mixins.pcss";
-  @import "../../styles/layout/base.pcss";
+  @import "../../../styles/mixins.pcss";
+  @import "../../../styles/layout/base.pcss";
 </style>
-<style lang="postcss" scoped src="../admin.pcss"></style>
+<style lang="postcss" scoped src="../../admin.pcss"></style>
