@@ -1,6 +1,11 @@
 <template>
   <card>
-    <editLine slot="title" v-model="categoryTitle" :editModeByDefault="empty"/>
+    <editLine
+      slot="title"
+      v-model="categoryTitle"
+      :editModeByDefault="empty"
+      @remove="$emit('remove', $event)"
+    />
     <template slot="content">
       <div class="skills" v-if="!empty">
         <div class="skills__list">
