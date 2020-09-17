@@ -1,0 +1,25 @@
+[
+  {
+    "id": 0,
+    "category": "Frontend",
+    "skills": [
+      {"id": 0, "title": "Css", "percent": 80},
+      {"id": 1, "title": "Html", "percent": 70},
+      {"id": 2, "title": "Js", "percent": 60}
+    ]
+  },
+  {
+    "id": 1,
+    "category": "Backend",
+    "skills": [
+      {"id": 0, "title": "PHP", "percent": 80}
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Workflow",
+    "skills": [
+      {"id": 0, "title": "Git", "percent": 80}
+    ]
+  }
+]

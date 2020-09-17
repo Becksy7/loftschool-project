@@ -15,14 +15,8 @@
           </div>
           <div class="cards">
             <div class="cards__list">
-              <div class="cards__item">
-                <category empty/>
-              </div>
-              <div class="cards__item">
-                <category/>
-              </div>
-              <div class="cards__item">
-                <category/>
+              <div class="cards__item" v-for="category in categories" :key="category.id">
+                <category :title="category.category" :skills="category.skills"/>
               </div>
             </div>
           </div>
@@ -30,38 +24,6 @@
       </main>
     </div>
   </div>
-
-  <!--
-      main.main
-        .main__container.container
-
-          .cards
-            .cards__list
-              .cards__item
-                .card
-                  .card__container
-                    .card__header
-                      .card__input
-                        input(type="text" placeholder="Название новой группы").form-input.form-input--lg
-                      .card__btns
-                        button.form-btn.form-btn--done
-                        button.form-btn.form-btn--cancel
-                    .card__content
-                      .skills
-                        .skills__list
-                          .skills__item
-                            | Git
-                            | 100 %
-                    .card__footer
-                      .card__footer-inputs
-                        .card__input
-                          input(type="text" placeholder="Новый навык").form-input
-                        .card__input
-                          input(type="text" placeholder="100 %").form-input.form-input--sm
-                      .card__btns
-                        button.add-button
-                          span.add-button__icon +
--->
 </template>
 <script>
 import avatar from "./components/avatar";
@@ -76,6 +38,14 @@ export default {
     navigation,
     iconedBtn,
     category
+  },
+  data() {
+    return {
+      categories: []
+    }
+  },
+  created() {
+    this.categories = require("./data/categories.json");
   }
 }
 </script>

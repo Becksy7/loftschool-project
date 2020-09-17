@@ -1,6 +1,6 @@
 <template>
   <card>
-    <editLine slot="title" v-model="title" :editModeByDefault="empty"/>
+    <editLine slot="title" v-model="categoryTitle" :editModeByDefault="empty"/>
     <template slot="content">
       <div class="skills" v-if="!empty">
         <div class="skills__list">
@@ -21,19 +21,21 @@ import card from "../Card";
 import editLine from "../editLine";
 import skill from "../skill";
 import skillAddLine from "../skillAddLine"
-const skills = [
-  {id: 0, title: "Git", percent: 80},
-  {id: 1, title: "Html", percent: 70}
-];
 export default {
   components: {card, editLine, skill, skillAddLine},
   props: {
-    empty: Boolean
+    empty: Boolean,
+    title: {
+      type: String
+    },
+    skills: {
+      type: Array,
+      default: () => []
+    }
   },
   data() {
     return {
-      title: "",
-      skills
+      categoryTitle: this.title,
     }
   }
 }
