@@ -9,7 +9,11 @@
     <div class="cards">
       <div class="cards__list">
         <div class="cards__item" v-if="emptyCategoryIsShow">
-          <category empty @remove="emptyCategoryIsShow=false"/>
+          <category
+              empty
+              @remove="emptyCategoryIsShow=false"
+              @approve="createCategory"
+          />
         </div>
         <div class="cards__item" v-for="category in categories" :key="category.id">
           <category :title="category.category" :skills="category.skills"/>
@@ -22,6 +26,7 @@
   import baseTemplate from "../../components/base-template";
   import iconedBtn from "../../components/button/button";
   import category from "../../components/category";
+  import {mapActions} from "vuex";
   export default {
     components: {
       baseTemplate,
@@ -32,6 +37,14 @@
       return {
         categories: [],
         emptyCategoryIsShow: false
+      }
+    },
+    methods: {
+      ...mapActions({
+        createCategoryAction: "categories/create"
+      }),
+      createCategory(categoryTitle) {
+        this.createCategoryAction(categoryTitle);
       }
     },
     created() {
