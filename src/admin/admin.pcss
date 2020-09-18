@@ -221,3 +221,19 @@
     background: rgba(45, 60, 78, 0.9);
   }
 }
+
+.notify-container {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  right: 0;
+  .notification {
+    transform: translateY(0);
+    transition: all 0.5s ease;
+  }
+  &.active {
+    .notification {
+      transform: translateY(-100%);
+    }
+  }
+}

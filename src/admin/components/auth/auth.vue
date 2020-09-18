@@ -33,6 +33,7 @@ import $axios from "../../requests";
 import appInput from "../input";
 import appButton from "../button";
 import SimpleVueValidator from 'simple-vue-validator';
+import {mapActions} from "vuex";
 
 const Validator = SimpleVueValidator.Validator;
 
@@ -60,6 +61,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      showTooltip: "tooltips/show"
+    }),
     async handleSubmit() {
       const $this = this;
       if (await this.$validate() === false) return;
@@ -71,7 +75,10 @@ export default {
         $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
         $this.$router.replace('/');
       } catch (error) {
-        console.log(error.response.data)
+        this.showTooltip({
+          text: error.response.data.error,
+          type: "error"
+        })
       } finally {
         $this.isSubmitDisabled = false;
       }
