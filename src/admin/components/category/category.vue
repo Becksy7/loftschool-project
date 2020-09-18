@@ -21,7 +21,10 @@
       </div>
     </template>
     <template slot="footer">
-      <skill-add-line :blocked="empty"/>
+      <skill-add-line
+          @approve="$emit('create-skill', $event)"
+          :blocked="empty"
+      />
     </template>
   </card>
 </template>

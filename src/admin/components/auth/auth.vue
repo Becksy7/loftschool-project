@@ -40,10 +40,10 @@ export default {
   mixins: [SimpleVueValidator.mixin],
   validators: {
     'user.name': function (value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required("Укажите имя пользователя");
     },
     'user.password': function (value) {
-      return Validator.value(value).required().minLength(6);
+      return Validator.value(value).required("Укажите пароль").minLength(6, "Длина пароля не может быть меньше 6 символов");
     }
   },
   components: {
@@ -73,7 +73,7 @@ export default {
       } catch (error) {
         console.log(error.response.data)
       } finally {
-        $this.isSubmitDisabled = false
+        $this.isSubmitDisabled = false;
       }
     }
   }

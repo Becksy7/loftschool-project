@@ -1,7 +1,7 @@
 .skill-component {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 40px 70px;
+  grid-template-columns: 1fr 50px 70px;
   width: 100%;
   align-items: center;
   min-height: 35px;
@@ -23,11 +23,13 @@
       content: '%';
       position: absolute;
       right: 0;
-      top: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   &__btns {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
   }
   &__btn {
