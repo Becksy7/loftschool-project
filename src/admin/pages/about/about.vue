@@ -18,10 +18,12 @@
         <div class="cards__item" v-for="category in categories" :key="category.id">
           <category
               :title="category.category"
+              :id="category.id"
               :skills="category.skills"
               @create-skill="createSkill($event, category.id)"
               @edit-skill="editSkill"
               @remove-skill="removeSkill"
+              @approve="editCategory($event, category, category.id)"
           />
         </div>
       </div>
@@ -54,35 +56,90 @@
     methods: {
       ...mapActions({
         createCategoryAction: "categories/create",
+        editCategoryAction: "categories/edit",
         fetchCategoriesAction: "categories/fetch",
         addSkillAction: "skills/add",
         editSkillAction: "skills/edit",
         removeSkillAction: "skills/remove",
+        showTooltip: "tooltips/show"
       }),
       async createSkill(skill, categoryId) {
         const newSkill = {
           ...skill,
           category: categoryId
         }
-        await this.addSkillAction(newSkill);
-
-        skill.title = "";
-        skill.percent = "";
-
+        try {
+          await this.addSkillAction(newSkill);
+          this.showTooltip({
+            text: "Данные успешно добавлены",
+            type: "success"
+          })
+          skill.title = "";
+          skill.percent = "";
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error"
+          })
+        }
       },
-      removeSkill(skill) {
-        this.removeSkillAction(skill);
+      async removeSkill(skill) {
+        try {
+          await this.removeSkillAction(skill);
+          this.showTooltip({
+            text: "Данные успешно удалены",
+            type: "success"
+          })
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error"
+          })
+        }
       },
       async editSkill(skillToEdit) {
-        await this.editSkillAction(skillToEdit);
-        skillToEdit.editMode = false;
+        try {
+          await this.editSkillAction(skillToEdit);
+          skillToEdit.editMode = false;
+          this.showTooltip({
+            text: "Данные успешно обновлены",
+            type: "success"
+          })
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error"
+          })
+        }
       },
       async createCategory(categoryTitle) {
         try {
           await this.createCategoryAction(categoryTitle);
           this.emptyCategoryIsShow = false;
+          this.showTooltip({
+            text: "Данные успешно добавлены",
+            type: "success"
+          })
         } catch (error) {
-          console.log(error.message);
+          this.showTooltip({
+            text: error.message,
+            type: "error"
+          })
+        }
+      },
+      async editCategory(categoryToEdit) {
+        console.log(categoryToEdit);
+        try {
+          await this.editCategoryAction(categoryToEdit);
+          this.showTooltip({
+            text: "Данные успешно изменены",
+            type: "success"
+          })
+        } catch (error) {
+          this.showTooltip({
+            text: error.message,
+            type: "error"
+          })
         }
       }
     },
