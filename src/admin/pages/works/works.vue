@@ -4,16 +4,24 @@
       <h1 class="main__title">Блок «Работы»</h1>
     </div>
     <div class="works-wrap">
-      <edit-work/>
+      <edit-work
+          v-if="editWorkIsShown"
+          @cancel="editWorkIsShown = false"
+      />
       <ul class="works">
         <li class="works__item">
           <square-btn
               type="square"
               title="Добавить<br>работу"
+              :disabled="editWorkIsShown"
+              @click="editWorkIsShown = true"
           />
         </li>
-        <li class="works__item"  v-for="work in works">
-          <card-work :work="work"/>
+        <li class="works__item"  v-for="work in works" :key="work.id">
+          <card-work
+              :work="work"
+              @remove="removeWork"
+          />
         </li>
       </ul>
     </div>
@@ -25,6 +33,7 @@
   import cardWork from "../../components/card-work";
   import squareBtn from "../../components/button";
   import editWork from "../../components/edit-work";
+  import {mapActions, mapState} from "vuex";
   export default {
     components: {
       baseTemplate,
@@ -32,24 +41,43 @@
       squareBtn,
       editWork
     },
-    data () {
+    data() {
       return {
-        works: []
+        editWorkIsShown: false,
+        currentWork: {}
       }
+    },
+    computed: {
+      ...mapState("works", {
+        works: (state) => state.data
+      })
     },
     methods: {
-      requireImg() {
-        this.works = this.works.map(work => {
-          work.photo = require(`../../../images/content/${work.photo}`).default;
-          return work;
-        })
-      }
+      ...mapActions({
+        fetchWorks: "works/fetch",
+        removeWorkAction: "works/remove",
+        showTooltip: "tooltips/show"
+      }),
+      async removeWork(workToRemove) {
+        try {
+          await this.removeWorkAction(workToRemove);
+          this.showTooltip({
+            text: "Данные успешно удалены",
+            type: "success"
+          })
+        } catch (error) {
+          this.showTooltip({
+            text: "Произошла ошибка",
+            type: "error"
+          })
+        }
+      },
     },
     mounted() {
-      this.requireImg();
+      this.fetchWorks();
     },
     created() {
-      this.works = require('../../../data/works.json')
+      //this.works = require('../../../data/works.json')
     }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['tag', {interactive: interactive}]">
+  <div :class="['tag', {'tag--interactive': interactive}]">
     <span>{{title}}</span>
     <button v-if="interactive" v-on="$listeners" class="btn-remove" type="button"></button>
   </div>
