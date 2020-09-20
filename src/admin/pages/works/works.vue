@@ -5,6 +5,7 @@
     </div>
     <div class="works-wrap">
       <edit-work
+          v-model="currentWork"
           v-if="editWorkIsShown"
           @cancel="editWorkIsShown = false"
       />
@@ -21,6 +22,7 @@
           <card-work
               :work="work"
               @remove="removeWork"
+              @edit="editWork"
           />
         </li>
       </ul>
@@ -72,6 +74,10 @@
           })
         }
       },
+      async editWork(workToEdit) {
+        this.editWorkIsShown = true;
+        this.currentWork = workToEdit;
+      }
     },
     mounted() {
       this.fetchWorks();

@@ -13,14 +13,14 @@
       <p class="card-work__text">{{work.description}}</p>
       <a class="card-work__link" :href="work.link">{{work.link}}</a>
       <div class="card-work__btns">
-        <button class="card-work__btn">
+        <button class="card-work__btn" @click="$emit('edit', currentWork)">
           Править
           <icon
             symbol="pencil"
             class="card-work__btn-icon"
           />
         </button>
-        <button class="card-work__btn"  @click="$emit('remove', currentWork)">
+        <button class="card-work__btn" @click="$emit('remove', currentWork)">
           Удалить
           <icon
             symbol="cross"

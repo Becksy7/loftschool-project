@@ -34,14 +34,13 @@
 <script>
   import baseTemplate from "../../components/base-template";
   import iconedBtn from "../../components/button/button";
-  import category from "../../components/category";
   import {mapActions, mapState} from "vuex";
   import skill from "../../components/skill";
   export default {
     components: {
       baseTemplate,
       iconedBtn,
-      category
+      category: () => import("../../components/category")
     },
     data() {
       return {

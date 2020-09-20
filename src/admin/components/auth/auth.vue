@@ -34,6 +34,7 @@ import appInput from "../input";
 import appButton from "../button";
 import SimpleVueValidator from 'simple-vue-validator';
 import {mapActions} from "vuex";
+import user from "../../store/modules/user";
 
 const Validator = SimpleVueValidator.Validator;
 
@@ -62,7 +63,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      showTooltip: "tooltips/show"
+      showTooltip: "tooltips/show",
+      login: "user/login"
     }),
     async handleSubmit() {
       const $this = this;
@@ -73,6 +75,10 @@ export default {
         const token = response.data.token;
         localStorage.setItem("token", token);
         $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+
+        const userResponse = await $axios.get("/user");
+        this.login(userResponse.data.user);
+
         $this.$router.replace('/');
       } catch (error) {
         this.showTooltip({
