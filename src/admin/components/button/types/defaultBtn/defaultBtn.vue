@@ -10,6 +10,10 @@
     <div class="btn-file-fake btn-decorator">{{title}}</div>
     <input class="btn-file-input" type="file" v-on="$listeners" />
   </label>
+  <label class="btn-file-container" v-else-if="typeAttr === 'photo'">
+    <div class="btn-title">{{title}}</div>
+    <input class="btn-file-input" type="file" v-on="$listeners" />
+  </label>
 </template>
 <script>
 export default {
@@ -27,7 +31,7 @@ export default {
     typeAttr: {
       type: String,
       default: "button",
-      validator: value => ["button", "file", "submit"].includes(value)
+      validator: value => ["button", "file", "photo", "submit"].includes(value)
     }
   }
 };

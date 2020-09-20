@@ -82,8 +82,5 @@
     mounted() {
       this.fetchWorks();
     },
-    created() {
-      //this.works = require('../../../data/works.json')
-    }
   }
 </script>
