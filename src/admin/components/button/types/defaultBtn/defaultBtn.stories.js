@@ -60,4 +60,16 @@ fileView.story = {
   name: "Тип - файл",
 };
 
+export const mdView = () => ({
+  components: { appButton },
+  template: `
+    <appButton fullWidth title="Отправить" @click="onClick" />
+  `,
+  methods
+});
+
+mdView.story = {
+  name: "Во всю ширину",
+};
+
 

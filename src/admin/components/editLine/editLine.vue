@@ -16,6 +16,7 @@
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
           no-side-paddings="no-side-paddings"
+          :errorMessage="validation.firstError('value')"
         ></app-input>
       </div>
       <div class="buttons">
@@ -31,7 +32,16 @@
 </template>
 
 <script>
+import SimpleVueValidator from 'simple-vue-validator';
+
+const Validator = SimpleVueValidator.Validator;
 export default {
+  mixins: [SimpleVueValidator.mixin],
+  validators: {
+    'value': function (value) {
+      return Validator.value(value).required("Введите название");
+    },
+  },
   props: {
     value: {
       type: String,
@@ -51,7 +61,8 @@ export default {
     };
   },
   methods: {
-    onApprove() {
+    async onApprove() {
+      if (await this.$validate() === false) return;
       if (this.title.trim() === this.value.trim()) {
         this.editmode = false;
       } else {

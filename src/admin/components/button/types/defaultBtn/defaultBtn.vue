@@ -1,13 +1,17 @@
 <template>
   <button
-    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}]"
-    v-if="typeAttr === 'button'"
+    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}, {'btn-full': fullWidth}]"
+    v-if="typeAttr === 'button' || typeAttr === 'submit'"
     v-on="$listeners"
     :disabled="disabled"
   >{{title}}</button>
 
   <label class="btn-file-container" v-else-if="typeAttr === 'file'">
     <div class="btn-file-fake btn-decorator">{{title}}</div>
+    <input class="btn-file-input" type="file" v-on="$listeners" />
+  </label>
+  <label class="btn-file-container" v-else-if="typeAttr === 'photo'">
+    <div class="btn-title">{{title}}</div>
     <input class="btn-file-input" type="file" v-on="$listeners" />
   </label>
 </template>
@@ -23,10 +27,11 @@ export default {
       default: false
     },
     plain: Boolean,
+    fullWidth: Boolean,
     typeAttr: {
       type: String,
       default: "button",
-      validator: value => ["button", "file"].includes(value)
+      validator: value => ["button", "file", "photo", "submit"].includes(value)
     }
   }
 };
