@@ -1,10 +1,15 @@
 <template>
-  <div class="avatar-component" :style="measures">
-    <img 
-      class="image"
-      v-bind="$attrs"
-      alt="user picture"
-    />
+  <div class="avatar-component">
+    <div class="avatar-component__wrap">
+      <div class="avatar-component__img-wrap" :class="{'avatar-component__img-wrap--bordered' : active}" :style="measures">
+        <img
+            class="avatar-component__img"
+            v-bind="$attrs"
+            alt="user picture"
+        />
+      </div>
+      <div class="avatar-component__username" v-text="title"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -13,6 +18,13 @@ export default {
     size: {
       type: String,
       default: "3"
+    },
+    title: {
+      type: String
+    },
+    active: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -22,7 +34,7 @@ export default {
         width: `${size}rem`,
         height: `${size}rem`,
       }
-    }
+    },
   }
 }
 </script>

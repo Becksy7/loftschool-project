@@ -1,0 +1,54 @@
+@import "../../../styles/mixins.pcss";
+.header {
+  background: #43436B;
+  color: #ffffff;
+  grid-row: 1/2;
+  &__container {
+    display: grid;
+    grid-template-rows: 5rem;
+    grid-template-columns: 2fr 3fr 1fr;
+    align-items: center;
+    position: relative;
+    @include tablets {
+      grid-template-columns: 3fr 2fr 1fr;
+    }
+    @include phones {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__title {
+    @include phones {
+      display: none;
+    }
+  }
+  &__title-text {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    opacity: 0.5;
+  }
+  &__logout {
+    justify-self: end;
+    @include phones {
+      position: absolute;
+      left: 58px;
+      top: 40px;
+    }
+  }
+}
+
+.header-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration-line: underline;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
