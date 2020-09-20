@@ -1,29 +1,36 @@
 <template>
-  <div class="wrapper">
-    <div class="page-container">
-      <header-component title="Панель администрирования">
-       <avatar src="https://picsum.photos/300/300" title="Владимир Астаханов"/>
-      </header-component>
-      <navigation/>
-      <router-view/>
+  <div>
+    <router-view/>
+    <div :class="['notify-container', {'active' : isTooltipShown}]">
+      <div class="notification">
+        <notification
+            :text="tooltipText"
+            :type="tooltipType"
+            @click="hideTooltip"
+        />
+      </div>
     </div>
   </div>
 </template>
 <script>
-import avatar from "./components/avatar";
-import headerComponent from "./components/header/header";
-import navigation from "./components/navigation/navigation";
+import notification from "./components/notification";
+import {mapState, mapActions} from "vuex";
 export default {
   components: {
-    avatar,
-    headerComponent,
-    navigation,
+    notification
   },
-  data() {
-    return {
-
-    }
+  methods: {
+    ...mapActions({
+      hideTooltip: "tooltips/hide"
+    })
   },
+  computed: {
+    ...mapState("tooltips", {
+      isTooltipShown: state => state.isShown,
+      tooltipText: state => state.text,
+      tooltipType: state => state.type
+    })
+  }
 }
 </script>
 <style lang="postcss">

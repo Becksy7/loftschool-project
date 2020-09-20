@@ -1,7 +1,7 @@
 <template>
   <button
-    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}]"
-    v-if="typeAttr === 'button'"
+    :class="['default-btn-container', 'btn-decorator', {disabled}, {plain}, {'btn-full': fullWidth}]"
+    v-if="typeAttr === 'button' || typeAttr === 'submit'"
     v-on="$listeners"
     :disabled="disabled"
   >{{title}}</button>
@@ -23,10 +23,11 @@ export default {
       default: false
     },
     plain: Boolean,
+    fullWidth: Boolean,
     typeAttr: {
       type: String,
       default: "button",
-      validator: value => ["button", "file"].includes(value)
+      validator: value => ["button", "file", "submit"].includes(value)
     }
   }
 };

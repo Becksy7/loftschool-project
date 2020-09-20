@@ -7,23 +7,27 @@ const routes = [
   {
     path: '/',
     name: 'about',
-    component: () => import('./components/about.vue')
+    component: () => import('./pages/about/about.vue')
   },
   {
     path: '/works',
     name: 'works',
-    component: () => import('./components/works.vue')
+    component: () => import('./pages/works/works.vue')
   },
   {
     path: '/reviews',
     name: 'reviews',
-    component: () => import('./components/reviews.vue')
+    component: () => import('./pages/reviews/reviews.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('./pages/login/login.vue')
   }
 ];
 
 const router = new VueRouter({
   routes,
-
 });
 
 export default router;

@@ -5,6 +5,7 @@
       v-model="categoryTitle"
       :editModeByDefault="empty"
       @remove="$emit('remove', $event)"
+      @approve="$emit('approve', $event)"
     />
     <template slot="content">
       <div class="skills" v-if="!empty">
@@ -20,7 +21,10 @@
       </div>
     </template>
     <template slot="footer">
-      <skill-add-line :blocked="empty"/>
+      <skill-add-line
+          @approve="$emit('create-skill', $event)"
+          :blocked="empty"
+      />
     </template>
   </card>
 </template>
