@@ -36,7 +36,7 @@ const router = new VueRouter({
 });
 
 const guard = axios.create({
-  baseURL: "http://localhost:8080"
+  baseURL: "https://becksy7.github.io/loftschool-project/" //"http://localhost:8080"
 });
 
 router.beforeEach(async(to, from, next) => {

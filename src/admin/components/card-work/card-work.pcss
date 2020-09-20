@@ -3,6 +3,9 @@
   filter: drop-shadow(10px 10px 20px rgba(95, 95, 95, 0.1));
   background: #ffffff;
   position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   &--isEditing {
     &:before {
       display: block;
@@ -18,6 +21,9 @@
   }
   &__preview {
     position: relative;
+    height: 190px;
+    overflow: hidden;
+    flex-shrink: 0;
   }
   &__tags {
     position: absolute;
@@ -31,9 +37,15 @@
   &__img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   &__desc {
     padding: 34px 24px 44px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   &__title {
     font-weight: bold;
@@ -48,6 +60,7 @@
     line-height: 30px;
     color: rgba(65, 76, 99, 0.5);
     margin: 0 0 26px;
+    flex-grow: 1;
   }
   &__link {
     font-style: normal;

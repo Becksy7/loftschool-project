@@ -1,5 +1,9 @@
 import Vue from "vue";
 import Flickity from 'vue-flickity';
+import axios from "axios";
+import config from "../../env.paths.json";
+
+axios.defaults.baseUrl = config.BASE_URL;
 
 new Vue({
   el: "#reviews",
@@ -22,8 +26,7 @@ new Vue({
   methods: {
     requireImagesToArray(data) {
       return data.map(item => {
-        const requireImg = require(`../images/content/${item.photo}`).default;
-        item.photo = requireImg;
+        item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
         return item;
       })
     },
@@ -43,8 +46,8 @@ new Vue({
       (index === 0) ? ref.prevBtn.disabled = true : ref.prevBtn.disabled = false;
     });
   },
-  created() {
-    const data = require("../data/reviews.json");
+  async created() {
+    const {data} = await axios.get("https://webdev-api.loftschool.com/reviews/413");
     this.reviews = this.requireImagesToArray(data);
   }
 });

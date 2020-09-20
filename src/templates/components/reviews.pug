@@ -2,7 +2,7 @@ script(type="text/x-template")#reviews-template
     .slider
         .slider__header
             .slider__title.section-title Что обо мне говорят
-            .slider__buttons
+            .slider__buttons(v-if="reviews.length > 2")
                 button(
                     type="button"
                     @click="previous()"
